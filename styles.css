@@ -1,0 +1,32 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: lightgoldenrodyellow;
+  width: 200px;
+  height: 250px;
+  border-radius: 20px;
+  margin: 30px;
+  padding: 30px;
+  text-align: center;
+  font-style: oblique;
+  font-size: x-large;
+  border: inset 6px brown;
+}
+
+.booksGrid {
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.pages {
+  padding-top: 10px;
+  font-size: large;
+  font-style: normal;
+  text-align: end;
+}
+
+.bookTitle {
+  font-family: Georgia, serif;
+}
