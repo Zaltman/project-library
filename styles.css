@@ -16,8 +16,10 @@
 
 .booksGrid {
   display: flex;
-
-  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  justify-content: left;
+  width: 1000px;
 }
 
 .pages {
@@ -29,4 +31,22 @@
 
 .bookTitle {
   font-family: Georgia, serif;
+}
+
+.addBook {
+  padding: px;
+  font-size: xx-large;
+  background-color: cornsilk;
+  border: inset 6px brown;
+}
+
+.isReadBtn {
+  background-color: crimson;
+  padding: 5px;
+  width: 100px;
+  align-self: center;
+}
+
+.isReadBtnTrue {
+  background-color: green;
 }
