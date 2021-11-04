@@ -7,6 +7,7 @@ function Book(title, author, pages) {
   this.isRead = false;
   this.info =
     this.title + ' by ' + this.author + ', ' + this.pages + ' pages long';
+
   this.addBookToLibrary();
 }
 
@@ -59,6 +60,9 @@ function createBookGrid() {
     bookN[i] = document.createElement('div');
     bookN[i].classList.add('bookTitle', 'book');
     bookN[i].textContent = myLibrary[i].title;
+
+    myLibrary[i].index = i;
+    sd;
 
     bookIsRead[i] = myLibrary[i].isRead;
     bookIsReadBtn = document.createElement('button');
