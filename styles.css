@@ -1,8 +1,12 @@
+body {
+  background-color: #d8dbe2;
+}
+
 .book {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: lightgoldenrodyellow;
+  background-color: #a9bcd0a1;
   width: 200px;
   height: 250px;
   border-radius: 20px;
@@ -11,7 +15,8 @@
   text-align: center;
   font-style: oblique;
   font-size: x-large;
-  border: inset 6px brown;
+  /* border: solid 2px #133c55; */
+  box-shadow: rgba(0, 0, 0, 0.342) 3px 3px 5px 5px;
 }
 
 .booksGrid {
@@ -23,14 +28,21 @@
 }
 
 .pages {
+  margin-top: 80px;
   padding-top: 10px;
+  margin-bottom: -30px;
   font-size: large;
   font-style: normal;
-  text-align: end;
+  text-align: center;
 }
 
 .bookTitle {
   font-family: Georgia, serif;
+  font-size: 32px;
+}
+
+.bookAuthor {
+  font-size: 20px;
 }
 
 .addBook {
@@ -41,12 +53,20 @@
 }
 
 .isReadBtn {
-  background-color: crimson;
-  padding: 5px;
-  width: 100px;
-  align-self: center;
+  /* background-color: crimson; */
+  /* padding: 5px; */
+  /* margin-top: 0px; */
+  border: 0px;
+  background-color: #a9bcd000;
+  width: 30px;
+  font-size: xx-large;
+  height: 30px;
+  align-self: end;
+
+  /* justify-self: flex-end; */
+  /* border-radius: 30px; */
 }
 
 .isReadBtnTrue {
-  background-color: green;
+  /* background-color: green; */
 }
