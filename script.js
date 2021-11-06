@@ -19,6 +19,7 @@ function promptBook() {
   let title = prompt('What is the title of book?');
   let author = prompt('What is the author of book?');
   let pages = prompt('How many pages the book has?');
+  if (title == null || author == null || pages == null) return;
 
   title = new Book(title, author, pages);
   clearBookGrid();
@@ -40,27 +41,26 @@ const Karateca3 = new Book(
   561
 );
 
+function removeBook(e) {
+  console.log(e.target);
+  let index = e.target.dataset.key;
+  console.log(index);
+  myLibrary.splice(index, 1);
+  clearBookGrid();
+  createBookGrid();
+}
+
 function haveReadStatus(e) {
-  console.log(e.target.dataset.key);
   let index = e.target.dataset.key;
   if (myLibrary[index].isRead == true) {
     myLibrary[index].isRead = false;
     e.target.classList.remove('isReadBtnTrue');
     e.target.textContent = '☐';
-    console.log('aina');
   } else {
     myLibrary[index].isRead = true;
-    console.log(myLibrary[index].isRead);
     e.target.classList.add('isReadBtnTrue');
     e.target.textContent = '🗹';
   }
-
-  // const info = getAttribute(e.target);
-  // console.log(info);
-  // const index = document.querySelector(
-  //   `button[data-key='${e.target.dataset.key}']`
-  // );
-  // console.log(index);
 }
 
 function checkReadStatus(i) {
@@ -81,15 +81,24 @@ function createBookGrid() {
     myLibrary[i].index = i;
     checkReadStatus(i);
     // bookIsRead[i] = myLibrary[i].isRead;
+    bookBottomContainer = document.createElement('div');
+    bookBottomContainer.classList.add('bookBottomContainer');
+
     bookIsReadBtn = document.createElement('button');
     bookIsReadBtn.setAttribute('data-key', i);
     bookIsReadBtn.textContent = bookIsRead[i];
     bookIsReadBtn.classList.add('isReadBtn');
     bookIsReadBtn.addEventListener('click', haveReadStatus);
+
+    bookRemoveBtn = document.createElement('button');
+    bookRemoveBtn.setAttribute('data-key', i);
+    bookRemoveBtn.textContent = '🗑️';
+    bookRemoveBtn.classList.add('trashBtn');
+    bookRemoveBtn.addEventListener('click', removeBook);
+
     bookAuthor[i] = document.createElement('div');
     bookAuthor[i].textContent = 'by ' + myLibrary[i].author;
     bookAuthor[i].classList.add('bookAuthor');
-    console.log(bookAuthor[i]);
     bookPages = document.createElement('div');
     bookPages.classList.add('pages');
     bookPages.textContent = myLibrary[i].pages + ' pages.';
@@ -97,13 +106,16 @@ function createBookGrid() {
     bookPlace.appendChild(bookN[i]);
     bookN[i].appendChild(bookAuthor[i], bookPages);
     bookN[i].appendChild(bookPages);
-    bookN[i].appendChild(bookIsReadBtn, bookPages);
+    bookN[i].appendChild(bookBottomContainer, bookPages);
+    // bookN[i].appendChild(bookIsReadBtn, bookBottomContainer);
+    // bookN[i].appendChild(bookIsReadBtn, bookBottomContainer);
+    bookBottomContainer.append(bookRemoveBtn);
+    bookBottomContainer.append(bookIsReadBtn);
+
+    // bookN[i].appendChild(bookRemoveBtn, bookBottomContainer);
   }
 }
 createBookGrid();
 
 addBookBtn = document.querySelector('.addBook');
 addBookBtn.addEventListener('click', promptBook);
-
-// console.table(myLibrary);
-// console.log(myLibrary.length);
