@@ -1,14 +1,16 @@
 let myLibrary = [];
 
-function Book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = false;
-  this.info =
-    this.title + ' by ' + this.author + ', ' + this.pages + ' pages long';
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = false;
+    this.info =
+      this.title + ' by ' + this.author + ', ' + this.pages + ' pages long';
 
-  this.addBookToLibrary();
+    this.addBookToLibrary();
+  }
 }
 
 Book.prototype.addBookToLibrary = function () {
